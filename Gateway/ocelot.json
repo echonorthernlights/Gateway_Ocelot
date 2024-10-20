@@ -1,0 +1,59 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7037"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/m1",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/m1",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7194
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 20
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/m2",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/m2",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7179
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/m2/{fileId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/m2/{fileId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7179
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/m2/",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/m2",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7179
+        }
+      ]
+    }
+
+  ]
+}
